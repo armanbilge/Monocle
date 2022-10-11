@@ -31,6 +31,6 @@ private[focus] class FocusImpl(val macroContext: Quotes)
 }
 
 private[monocle] object FocusImpl {
-  def apply[From: Type, To: Type](lambda: Expr[Focus.KeywordContext ?=> From => To])(using Quotes): Expr[Any] =
-    new FocusImpl(quotes).run(lambda)
+  def apply[From: Type, To: Type](lambda: Expr[Focus.KeywordContext ?=> From => To])(using q: Quotes): Expr[Any] =
+    new FocusImpl(q).run(lambda)
 }
